@@ -54,5 +54,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DepartmanDetails(int id)
+        {
+            var values = c.Personels.Where(d => d.DepartmanID == id).ToList();
+            return View(values);
+        }
     }
 }
