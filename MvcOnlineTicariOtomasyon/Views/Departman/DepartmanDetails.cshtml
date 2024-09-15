@@ -8,7 +8,7 @@
 <br />
 <h2>Departman Detay Sayfası</h2>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Dashboard</li>
+    <li class="breadcrumb-item active"><b>Departman Adı:</b> @ViewBag.d</li>
 </ol>
 <table class="table table-striped">
     <tr>
@@ -16,6 +16,7 @@
         <th>Ad</th>
         <th>Soyad</th>
         <th>Görsel</th>
+        <th>Satışlar</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -24,6 +25,7 @@
             <td>@item.PersonelAd</td>
             <td>@item.PersonelSoyad</td>
             <td>@item.PersonelGorsel</td>
+            <td><a href="#" class="btn btn-dark">Satışlar</a></td>
         </tr>
     }
 </table>
