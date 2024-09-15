@@ -290,6 +290,7 @@
     <Content Include="Views\Urun\NewUrun.cshtml" />
     <Content Include="Views\Urun\GetUrun.cshtml" />
     <Content Include="Views\Departman\Index.cshtml" />
+    <Content Include="Views\Departman\AddDepartman.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
