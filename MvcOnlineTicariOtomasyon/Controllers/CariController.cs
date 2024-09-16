@@ -1,4 +1,5 @@
 ﻿using MvcOnlineTicariOtomasyon.DAL;
+using MvcOnlineTicariOtomasyon.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,20 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             var values = c.Carilers.ToList();
             return View(values);
+        }
+
+        [HttpGet]
+        public ActionResult NewCari()
+        {
+            return View();  
+        }
+
+        [HttpPost]
+        public ActionResult NewCari(Cariler p)
+        {
+            c.Carilers.Add(p);  
+            c.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
