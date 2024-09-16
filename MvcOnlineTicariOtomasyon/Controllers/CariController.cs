@@ -14,20 +14,29 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var values = c.Carilers.ToList();
+            var values = c.Carilers.Where(x => x.Durum == true).ToList();
             return View(values);
         }
 
         [HttpGet]
         public ActionResult NewCari()
         {
-            return View();  
+            return View();
         }
 
         [HttpPost]
         public ActionResult NewCari(Cariler p)
         {
-            c.Carilers.Add(p);  
+            p.Durum = true;
+            c.Carilers.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteCari(int id)
+        {
+            var cr = c.Carilers.Find(id);
+            cr.Durum = false;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
