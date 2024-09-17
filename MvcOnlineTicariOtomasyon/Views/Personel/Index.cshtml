@@ -1,0 +1,32 @@
+﻿@using MvcOnlineTicariOtomasyon.Models
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>ID</th>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Görsel</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.PersonelID</th>
+            <td>@item.PersonelAd</td>
+            <td>@item.PersonelSoyad</td>
+            <td>@item.PersonelGorsel</td>
+            <td>@item.Departman.DepartmanAd</td>
+            <td><a href="/Personel/GetPersonel/@item.PersonelID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Personel/PersonelDetails/@item.PersonelID" class="btn btn-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Personel/AddPersonel/" class="btn btn-info">Yeni Personel Ekle</a>
