@@ -301,6 +301,7 @@
     <Content Include="Views\Cari\GetCari.cshtml" />
     <Content Include="Views\Cari\MusteriSatis.cshtml" />
     <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\Personel\AddPersonel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
