@@ -38,5 +38,29 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetPersonel(int id)
+        {
+            List<SelectListItem> value = (from x in c.Departmans.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.DepartmanAd,
+                                              Value = x.DepartmanID.ToString()
+                                          }).ToList();
+            ViewBag.dgr = value;
+            var prs = c.Personels.Find(id);
+            return View("GetPersonel", prs);
+        }
+
+        public ActionResult UpdatePersonel(Personel p)
+        {
+            var prsn = c.Personels.Find(p.PersonelID);
+            prsn.PersonelAd = p.PersonelAd;
+            prsn.PersonelSoyad = p.PersonelSoyad;
+            prsn.PersonelGorsel = p.PersonelGorsel;
+            prsn.DepartmanID = p.DepartmanID;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
