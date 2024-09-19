@@ -42,7 +42,6 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.dgr1 = value;
             ViewBag.dgr2 = value2;
             ViewBag.dgr3 = value3;
-
             return View();
         }
 
@@ -53,6 +52,33 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SatisHarekets.Add(s);
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult GetSatis(int id)
+        {
+            List<SelectListItem> value = (from x in c.Uruns.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.UrunAd,
+                                              Value = x.UrunID.ToString(),
+                                          }).ToList();
+            List<SelectListItem> value2 = (from x in c.Carilers.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CariAd + " " + x.CariSoyad,
+                                               Value = x.CariID.ToString(),
+                                           }).ToList();
+            List<SelectListItem> value3 = (from x in c.Personels.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.PersonelAd + " " + x.PersonelSoyad,
+                                               Value = x.PersonelID.ToString(),
+                                           }).ToList();
+            ViewBag.dgr1 = value;
+            ViewBag.dgr2 = value2;
+            ViewBag.dgr3 = value3;
+            var values = c.SatisHarekets.Find(id);
+            return View("GetSatis", values);
         }
     }
 }
