@@ -1,4 +1,5 @@
 ﻿using MvcOnlineTicariOtomasyon.DAL;
+using MvcOnlineTicariOtomasyon.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,20 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             var values = c.Faturalars.ToList();
             return View(values);
+        }
+
+        [HttpGet]
+        public ActionResult AddFatura()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddFatura(Faturalar p)
+        {
+            c.Faturalars.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
