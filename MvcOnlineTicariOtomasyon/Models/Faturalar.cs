@@ -15,7 +15,7 @@ namespace MvcOnlineTicariOtomasyon.Models
 
         [Column(TypeName = "Char")]
         [StringLength(1)]
-        public char FaturaSeriNo { get; set; }
+        public string FaturaSeriNo { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(6)]
