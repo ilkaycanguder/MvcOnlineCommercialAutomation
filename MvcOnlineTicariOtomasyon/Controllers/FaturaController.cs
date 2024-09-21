@@ -43,13 +43,19 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var fat = c.Faturalars.Find(f.FaturaID);
             fat.FaturaSeriNo = f.FaturaSeriNo;
             fat.FaturaSiraNo = f.FaturaSiraNo;
-            fat.Saat = f.Saat;  
-            fat.Tarih = f.Tarih;    
+            fat.Saat = f.Saat;
+            fat.Tarih = f.Tarih;
             fat.TeslimAlan = f.TeslimAlan;
             fat.TeslimEden = f.TeslimEden;
             fat.VergiDairesi = f.VergiDairesi;
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult FaturaDetails(int id)
+        {
+            var values = c.FaturaKalems.Where(d => d.FaturaID == id).ToList();
+            return View(values);
         }
     }
 }
