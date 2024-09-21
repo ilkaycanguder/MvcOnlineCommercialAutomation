@@ -11,7 +11,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     public class FaturaController : Controller
     {
         // GET: Fatura
-        Context c = new Context();  
+        Context c = new Context();
         public ActionResult Index()
         {
             var values = c.Faturalars.ToList();
@@ -30,6 +30,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.Faturalars.Add(p);
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult GetFatura(int id)
+        {
+            var fatura = c.Faturalars.Find(id);
+            return View("GetFatura", fatura);
         }
     }
 }
