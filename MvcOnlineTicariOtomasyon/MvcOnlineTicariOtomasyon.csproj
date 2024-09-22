@@ -150,7 +150,9 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Cariler.cs" />
     <Compile Include="DAL\Context.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Departman.cs" />
+    <Compile Include="Models\Detay.cs" />
     <Compile Include="Models\FaturaKalem.cs" />
     <Compile Include="Models\Faturalar.cs" />
     <Compile Include="Models\Gider.cs" />
