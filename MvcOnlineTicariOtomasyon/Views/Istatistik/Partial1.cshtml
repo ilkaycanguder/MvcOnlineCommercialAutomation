@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MvcOnlineTicariOtomasyon.Models.SinifGrup2>
+
+<table>
+    <tr>
+        <td>Departman</td>
+        <td>Adet</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Departman</td>
+            <td>@x.Sayi</td>
+        </tr>
+    }
+</table>
