@@ -163,6 +163,7 @@
     <Compile Include="Models\SinifGrup2.cs" />
     <Compile Include="Models\SinifGrup3.cs" />
     <Compile Include="Models\Urun.cs" />
+    <Compile Include="Models\Yapilacak.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
