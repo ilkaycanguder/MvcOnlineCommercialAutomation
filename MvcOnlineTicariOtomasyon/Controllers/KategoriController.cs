@@ -1,9 +1,7 @@
 ﻿using MvcOnlineTicariOtomasyon.DAL;
 using MvcOnlineTicariOtomasyon.Models;
-using System;
-using System.Collections.Generic;
+using PagedList;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
@@ -12,9 +10,9 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     {
         // GET: Kategori
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
-            var values = c.Kategoris.ToList();
+            var values = c.Kategoris.ToList().ToPagedList(sayfa, 4);
             return View(values);
         }
 
@@ -51,7 +49,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var ktg = c.Kategoris.Find(k.KategoriID);
             ktg.KategoriAd = k.KategoriAd;
             c.SaveChanges();
-            return RedirectToAction("Index");   
+            return RedirectToAction("Index");
         }
     }
 }

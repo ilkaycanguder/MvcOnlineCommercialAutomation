@@ -12,19 +12,13 @@
 </ol>
 <table class="table table-striped">
     <tr>
-        <th>Personel ID</th>
-        <th>Ad</th>
-        <th>Soyad</th>
-        <th>Görsel</th>
+        <th>Personel</th>
         <th>Satışlar</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <th>@item.PersonelID</th>
-            <td>@item.PersonelAd</td>
-            <td>@item.PersonelSoyad</td>
-            <td>@item.PersonelGorsel</td>
+            <td>@item.PersonelAd @item.PersonelSoyad</td>
             <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-dark">Satışlar</a></td>
         </tr>
     }

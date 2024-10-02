@@ -7,32 +7,26 @@
 
 <table class="table table-bordered mt-3">
     <tr>
-        <th>ID</th>
-        <th>Seri No</th>
-        <th>Sıra No</th>
-        <th>Vergi Dairesi</th>
+        <th>Seri Sıra No</th>
         <th>Tarih</th>
         <th>Saat</th>
-        <th>Teslim Eden</th>
-        <th>Teslim Alan</th>
         <th>Toplam</th>
         <th>Güncelle</th>
         <th>Detaylar</th>
+        <th>Popup Liste</th>
+        <th>Yeni Kalem</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <th>@item.FaturaID</th>
-            <td>@item.FaturaSeriNo</td>
-            <td>@item.FaturaSiraNo</td>
-            <td>@item.VergiDairesi</td>
+            <td>@item.FaturaSeriNo @item.FaturaSiraNo</td>
             <td>@item.Tarih</td>
             <td>@item.Saat</td>
-            <td>@item.TeslimEden</td>
-            <td>@item.TeslimAlan</td>
-            <td>@item.Toplam</td>
+            <td>@item.Toplam ₺</td>
             <td><a href="/Fatura/GetFatura/@item.FaturaID" class="btn btn-warning">Güncelle</a></td>
             <td><a href="/Fatura/FaturaDetails/@item.FaturaID" class="btn btn-dark">Detaylar</a></td>
+            <td><a href="/Fatura/FaturaDetails/@item.FaturaID" class="btn btn-info">Popup</a></td>
+            <td><a href="/Fatura/FaturaDetails/@item.FaturaID" class="btn btn-outline-dark">Kalem</a></td>
         </tr>
     }
 </table>
