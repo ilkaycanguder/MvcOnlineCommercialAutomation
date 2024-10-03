@@ -1,4 +1,4 @@
-﻿@model MvcOnlineTicariOtomasyon.Models.Personel    
+﻿@model MvcOnlineTicariOtomasyon.Models.Personel
 @{
     ViewBag.Title = "GetPersonel";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,7 +7,7 @@
 <br />
 <h2>Cari Güncelleme</h2>
 
-@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post))
+@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group mb-2">
         @Html.HiddenFor(x => x.PersonelID)
@@ -20,7 +20,7 @@
         @Html.ValidationMessageFor(x => x.PersonelSoyad, "", new { @style = "color:red" })
         <br />
         @Html.LabelFor(x => x.PersonelGorsel)
-        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
+        <input type="file" name="PersonelGorsel" class="form-control" />
         <br />
         @Html.LabelFor(x => x.Departman)
         @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
