@@ -4,11 +4,18 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<script src="~/Scripts/jquery-3.7.0.js"></script>
 <br />
 <h2>Yeni Kategori Sayfası</h2>
 <br />
 <form method="post" class="form-group">
     @Html.LabelFor(x => x.KategoriAd)
     @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
-    <button class="btn btn-info mt-3">Kaydet</button>
+    <button class="btn btn-info mt-3" id="Btn1">Kaydet</button>
+
+    <script>
+        $('#Btn1').click(function () {
+            alert("Kategori başarılı bir şekilde eklendi")
+        })
+    </script>
 </form>
