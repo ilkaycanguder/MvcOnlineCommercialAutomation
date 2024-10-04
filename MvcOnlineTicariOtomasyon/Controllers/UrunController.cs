@@ -1,5 +1,6 @@
 ﻿using MvcOnlineTicariOtomasyon.DAL;
 using MvcOnlineTicariOtomasyon.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,20 +70,45 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var urn = c.Uruns.Find(p.UrunID);
             urn.AlisFiyat = p.AlisFiyat;
             urn.Durum = p.Durum;
-            urn.KategoriID = p.KategoriID;  
-            urn.Marka = p.Marka;    
-            urn.SatisFiyat = urn.SatisFiyat;    
-            urn.Stok = p.Stok;  
+            urn.KategoriID = p.KategoriID;
+            urn.Marka = p.Marka;
+            urn.SatisFiyat = urn.SatisFiyat;
+            urn.Stok = p.Stok;
             urn.UrunAd = p.UrunAd;
             urn.UrunGorsel = p.UrunGorsel;
             c.SaveChanges();
-            return RedirectToAction("Index");   
+            return RedirectToAction("Index");
         }
 
         public ActionResult UrunListesi()
         {
             var values = c.Uruns.ToList();
             return View(values);
+        }
+
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {
+            List<SelectListItem> value = (from x in c.Personels.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.PersonelAd + " " + x.PersonelSoyad,
+                                              Value = x.PersonelID.ToString(),
+                                          }).ToList();
+            ViewBag.dgr1 = value;
+            var urunvalue = c.Uruns.Find(id);
+            ViewBag.dgr2 = urunvalue.UrunID;
+            ViewBag.dgr3 = urunvalue.SatisFiyat;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket p)
+        {
+            p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            c.SatisHarekets.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index", "Satis");
         }
     }
 }
