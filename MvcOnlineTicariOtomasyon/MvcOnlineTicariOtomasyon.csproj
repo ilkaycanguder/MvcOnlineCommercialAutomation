@@ -142,6 +142,7 @@
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
+    <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
@@ -156,6 +157,10 @@
     <Compile Include="Migrations\202409201522407_faturalar_siraNo.Designer.cs">
       <DependentUpon>202409201522407_faturalar_siraNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410041835161_kargotest.cs" />
+    <Compile Include="Migrations\202410041835161_kargotest.Designer.cs">
+      <DependentUpon>202410041835161_kargotest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Cariler.cs" />
@@ -166,6 +171,8 @@
     <Compile Include="Models\FaturaKalem.cs" />
     <Compile Include="Models\Faturalar.cs" />
     <Compile Include="Models\Gider.cs" />
+    <Compile Include="Models\KargoDetay.cs" />
+    <Compile Include="Models\KargoTakip.cs" />
     <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Personel.cs" />
     <Compile Include="Models\SatisHareket.cs" />
@@ -2935,10 +2942,12 @@
     <Content Include="Views\CariPanel\Siparislerim.cshtml" />
     <Content Include="Views\Alertler\Index.cshtml" />
     <Content Include="Views\Urun\SatisYap.cshtml" />
+    <Content Include="Views\Kargo\Index.cshtml" />
+    <Content Include="Views\Kargo\YeniKargo.cshtml" />
+    <Content Include="Views\Kargo\KargoTakip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Deneme\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -2970,6 +2979,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202409201522407_faturalar_siraNo.resx">
       <DependentUpon>202409201522407_faturalar_siraNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410041835161_kargotest.resx">
+      <DependentUpon>202410041835161_kargotest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
