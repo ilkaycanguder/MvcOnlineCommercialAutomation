@@ -15,8 +15,18 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CariMail"];
-            var values = c.Carilers.FirstOrDefault(x => x.CariMail == mail);
+            var values = c.mesajlars.Where(x => x.Alici == mail).ToList();
             ViewBag.m = mail;
+            var mailId = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.CariID).FirstOrDefault();
+            ViewBag.mid = mailId;
+            var toplamSatis = c.SatisHarekets.Where(x => x.CariID == mailId).Count();
+            ViewBag.toplamsts = toplamSatis;
+            var toplamTutar = c.SatisHarekets.Where(x => x.CariID == mailId).Sum(y => y.ToplamTutar);
+            ViewBag.toplam = toplamTutar;
+            var toplamUrunSayisi = c.SatisHarekets.Where(x => x.CariID == mailId).Sum(y => y.Adet);
+            ViewBag.toplamUrun = toplamUrunSayisi;
+            var adSoyad = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.CariAd + " " + y.CariSoyad).FirstOrDefault();
+            ViewBag.adSyd = adSoyad;
             return View(values);
         }
 
@@ -100,6 +110,30 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+
+        public PartialViewResult Partial1()
+        {
+            var mail = (string)Session["CariMail"];
+            var id = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.CariID).FirstOrDefault();
+            var cariBul = c.Carilers.Find(id);
+            return PartialView("Partial1", cariBul);
+        }
+
+        public PartialViewResult Partial2()
+        {
+            var veriler = c.mesajlars.Where(x => x.Gonderici == "admin").ToList();
+            return PartialView(veriler);
+        }
+
+        public ActionResult CariBilgiGuncelle(Cariler cr)
+        {
+            var cari = c.Carilers.Find(cr.CariID);
+            cari.CariAd = cr.CariAd;
+            cari.CariSoyad = cr.CariSoyad;
+            cari.CariSifre = cr.CariSifre;
+            c.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
