@@ -141,6 +141,7 @@
     <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\AlertlerController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\GrafikController.cs" />
@@ -2971,6 +2972,8 @@
     <Content Include="Views\CariPanel\CariKargoTakip.cshtml" />
     <Content Include="Views\CariPanel\Partial1.cshtml" />
     <Content Include="Views\CariPanel\Partial2.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Error\Page500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
