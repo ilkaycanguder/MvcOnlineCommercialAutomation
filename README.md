@@ -3,19 +3,6 @@
 
 Bu proje, ticari bir otomasyon sistemini ASP.NET MVC ile yönetmek için kapsamlı bir uygulamadır. Ürün, müşteri ve satış takibi gibi temel özellikleri içerir.
 
-## Ekran Görüntüleri
-
-![Ana Panel](./MvcOnlineTicariOtomasyon/ProjectImages/1.png)
-![Ürün Yönetimi](./MvcOnlineTicariOtomasyon/ProjectImages/2.png)
-![Sipariş Takibi](./MvcOnlineTicariOtomasyon/ProjectImages/3.png)
-![Cari Yönetimi](./MvcOnlineTicariOtomasyon/ProjectImages/4.png)
-![Raporlar](./MvcOnlineTicariOtomasyon/ProjectImages/5.png)
-![Tedarikçi Yönetimi](./MvcOnlineTicariOtomasyon/ProjectImages/6.png)
-![Kullanıcı Yetkilendirme](./MvcOnlineTicariOtomasyon/ProjectImages/7.png)
-
-
-## Veritabanı Kurulumu
-
 Projede kullanılan veritabanı tabloları şunlardır:
 - Admin
 - Cariler
@@ -32,6 +19,19 @@ Projede kullanılan veritabanı tabloları şunlardır:
 - Urun
 - Yapılacak
 
+## Ekran Görüntüleri
+
+![Ana Panel](./MvcOnlineTicariOtomasyon/ProjectImages/1.png)
+![Ürün Yönetimi](./MvcOnlineTicariOtomasyon/ProjectImages/2.png)
+![Sipariş Takibi](./MvcOnlineTicariOtomasyon/ProjectImages/3.png)
+![Cari Yönetimi](./MvcOnlineTicariOtomasyon/ProjectImages/4.png)
+![Raporlar](./MvcOnlineTicariOtomasyon/ProjectImages/5.png)
+![Tedarikçi Yönetimi](./MvcOnlineTicariOtomasyon/ProjectImages/6.png)
+![Kullanıcı Yetkilendirme](./MvcOnlineTicariOtomasyon/ProjectImages/7.png)
+
+
+## Veritabanı Kurulumu
+
 Veritabanını yüklemek için:
 
 1. Proje dizininde yer alan `dataproje.bak` dosyasını kullanarak SQL Server'da bir veritabanı oluşturun.
@@ -44,7 +44,7 @@ Veritabanını yüklemek için:
 
 ```xml
 <connectionStrings>
-    <add name="MvcOnlineTicariOtomasyonContext" 
+    <add name="Context" 
          connectionString="Data Source=SUNUCU_ADINIZ;Initial Catalog=dataproje;Integrated Security=True" 
          providerName="System.Data.SqlClient" />
 </connectionStrings>
