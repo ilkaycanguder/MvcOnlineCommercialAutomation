@@ -193,6 +193,7 @@
     <Compile Include="Models\Urun.cs" />
     <Compile Include="Models\Yapilacak.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\.gitignore" />

@@ -4,10 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<br />
 <script src="~/Scripts/jquery-3.7.0.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
+<br />
+<br />
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
@@ -67,123 +68,100 @@
 @*Adım 2*@
 
 <div class="modal fade" id="newOrderModal">
-    <div class="modal-dialog modal-lg" style=" width: 900px !important;">
+    <div class="modal-dialog modal-lg" style="width: 900px !important;">
         <div class="modal-content">
             <div class="modal-header">
-                <a href="#" class="close" data-dismiss="modal">&times;</a>
-                <h4>Yeni Fatura Girişi</h4>
+                <h4 class="modal-title" style="float: left;">Yeni Fatura Girişi</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="NewOrderForm">
                 <div class="modal-body">
-                    @*Fatura Detayları*@
+                    <!-- Fatura Detayları -->
                     <h5 style="color:#ff6347">Fatura Detayları</h5>
                     <hr />
-                    <div class="form-horizontal">
-                        <input type="hidden" id="FaturaID" />
-                        <div class="form-group">
-                            <label class="control-label col-md-2">
-                                Seri No
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="FaturaSeriNo" name="FaturaSeriNo" placeholder="Seri Numarası" class="form-control" />
-                            </div>
-                            <label class="control-label col-md-2">
-                                Sıra No
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="FaturaSiraNo" name="FaturaSiraNo" placeholder="Sıra Numarası" class="form-control" />
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="FaturaSeriNo" class="form-label">Seri No</label>
+                            <input type="text" id="FaturaSeriNo" name="FaturaSeriNo" placeholder="Seri Numarası" class="form-control" />
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2">
-                                Tarih
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="Tarih" name="Tarih" placeholder="Tarihi Girin" class="form-control" />
-                            </div>
-                            <label class="control-label col-md-2">
-                                Vergi Dairesi
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="VergiDairesi" name="VergiDairesi" placeholder="Vergi Dairesi" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2">
-                                Saat
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="Saat" name="Saat" placeholder="Saat Girin" class="form-control" />
-                            </div>
-                            <label class="control-label col-md-2">
-                                Teslim Eden
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="TeslimEden" name="TeslimEden" placeholder="Teslim Eden Cari / Personel" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2">
-                                Teslim Alan
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="TeslimAlan" name="TeslimAlan" placeholder="Teslim Alan Cari / Personel" class="form-control" />
-                            </div>
-                            <label class="control-label col-md-2">
-                                Toplam Tutar
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="Toplam" name="Toplam" placeholder="Toplam Tutar" class="form-control" />
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="FaturaSiraNo" class="form-label">Sıra No</label>
+                            <input type="text" id="FaturaSiraNo" name="FaturaSiraNo" placeholder="Sıra Numarası" class="form-control" />
                         </div>
                     </div>
 
-                    @*Fatura Kalemleri*@
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="Tarih" class="form-label">Tarih</label>
+                            <input type="date" id="Tarih" name="Tarih" placeholder="Tarihi Girin" class="form-control" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="VergiDairesi" class="form-label">Vergi Dairesi</label>
+                            <input type="text" id="VergiDairesi" name="VergiDairesi" placeholder="Vergi Dairesi" class="form-control" />
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="Saat" class="form-label">Saat</label>
+                            <input type="time" id="Saat" name="Saat" placeholder="Saat Girin" class="form-control" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="TeslimEden" class="form-label">Teslim Eden</label>
+                            <input type="text" id="TeslimEden" name="TeslimEden" placeholder="Teslim Eden Cari / Personel" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="TeslimAlan" class="form-label">Teslim Alan</label>
+                            <input type="text" id="TeslimAlan" name="TeslimAlan" placeholder="Teslim Alan Cari / Personel" class="form-control" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="Toplam" class="form-label">Toplam Tutar</label>
+                            <input type="number" step="0.01" id="Toplam" name="Toplam" placeholder="Toplam Tutar" class="form-control" />
+                        </div>
+                    </div>
+
+                    <!-- Fatura Kalemleri -->
                     <h5 style="margin-top:10px;color:#ff6347">Fatura Kalemleri</h5>
                     <hr />
-                    <div class="form-horizontal">
-                        <input type="hidden" id="id" />
-                        <div class="form-group">
-                            <label class="control-label col-md-2">
-                                Açıklama
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" id="Aciklama" name="Aciklama" placeholder="Ürün / Birim Açıklaması" class="form-control" />
-                            </div>
-                            <label class="control-label col-md-2">
-                                Fiyat
-                            </label>
-                            <div class="col-md-4">
-                                <input type="number" id="BirimFiyat" name="BirimFiyat" placeholder="Birim Başına Fiyat Miktarı" class="form-control" />
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="Aciklama" class="form-label">Açıklama</label>
+                            <input type="text" id="Aciklama" name="Aciklama" placeholder="Ürün / Birim Açıklaması" class="form-control" />
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2">
-                                Miktar
-                            </label>
-                            <div class="col-md-4">
-                                <input type="number" id="Miktar" name="Miktar" placeholder="Miktar Giriniz" class="form-control" />
-                            </div>
-                            <div class="col-md-2 col-lg-offset-4">
-                                <a id="addToList" class="btn btn-primary">Listeye Ekle</a>
-                            </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="BirimFiyat" class="form-label">Fiyat</label>
+                            <input type="number" step="0.01" id="BirimFiyat" name="BirimFiyat" placeholder="Birim Başına Fiyat Miktarı" class="form-control" />
                         </div>
-                        <table id="detailsTable" class="table">
-                            <thead>
-                                <tr>
-                                    <th style="width:30%">Açıklama</th>
-                                    <th style="width:20%">Miktar</th>
-                                    <th style="width:15%">Fiyat</th>
-                                    <th style="width:25%">Tutar</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                        <div class="col-md-3 mb-3">
+                            <label for="Miktar" class="form-label">Miktar</label>
+                            <input type="number" id="Miktar" name="Miktar" placeholder="Miktar Giriniz" class="form-control" />
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-end">
+                            <a id="addToList" class="btn btn-primary">Listeye Ekle</a>
+                        </div>
+                    </div>
+
+                    <!-- Tablo -->
+                    <table id="detailsTable" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Açıklama</th>
+                                <th>Miktar</th>
+                                <th>Fiyat</th>
+                                <th>Tutar</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="reset" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
                     <button id="saveOrder" type="submit" class="btn btn-danger">Faturayı Kaydet</button>
                 </div>
             </form>
@@ -196,7 +174,8 @@
 @section scripts{
     <script>
         function addNewOrder() {
-            $("#newOrderModal").modal();
+            var modal = new bootstrap.Modal(document.getElementById('newOrderModal'));
+            modal.show();
         }
         $("#addToList").click(function (e) {
             e.preventDefault();

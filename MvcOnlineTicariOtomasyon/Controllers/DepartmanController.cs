@@ -20,6 +20,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return View(values);
         }
 
+        [Authorize(Roles = "A")]
         [HttpGet]
         public ActionResult AddDepartman()
         {
