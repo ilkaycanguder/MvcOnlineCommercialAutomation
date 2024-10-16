@@ -2208,6 +2208,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\man.jpg.jpg" />
+    <Content Include="ProjectImages\1.png" />
+    <Content Include="ProjectImages\2.png" />
+    <Content Include="ProjectImages\3.png" />
+    <Content Include="ProjectImages\4.png" />
+    <Content Include="ProjectImages\5.png" />
+    <Content Include="ProjectImages\6.png" />
+    <Content Include="ProjectImages\7.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

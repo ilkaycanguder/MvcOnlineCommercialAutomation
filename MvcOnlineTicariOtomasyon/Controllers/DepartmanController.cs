@@ -31,6 +31,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult AddDepartman(Departman d)
         {
             c.Departmans.Add(d);
+            d.Durum = true;
             c.SaveChanges();
             return RedirectToAction("Index");
         }
